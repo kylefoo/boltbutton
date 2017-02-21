@@ -20,6 +20,16 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+staging:
+  adapter: postgresql
+  encoding: unicode
+  pool: 20
+  port: 5432
+  database: boltbutton_staging
+  host: localhost
+  username: kyle
+  password: Foo010933
+  
 production:
   <<: *default
   database: db/production.sqlite3
