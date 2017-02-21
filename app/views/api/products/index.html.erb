@@ -20,9 +20,9 @@
         <td><%= product.slug %></td>
         <td><%= product.sku %></td>
         <td><%= product.category_id %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', api_product_path(product) %></td>
+        <td><%= link_to 'Edit', edit_api_product_path(product) %></td>
+        <td><%= link_to 'Destroy', api_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
