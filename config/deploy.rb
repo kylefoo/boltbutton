@@ -88,5 +88,3 @@ namespace :rails do
     end
   end
 end
-
-end
