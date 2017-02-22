@@ -25,13 +25,14 @@ Things you may want to cover:
 
 * How to make api call
 
-Body
-{
-  "name" : "kylefoo",
-  "amount" : "10",
-  "email" : "kylefoo@tourplus.my",
-  "collection_id" : "0xviqv40",
-  "description" : "123, Jalan Malaka, Taman Mala. Malaysia"
-}
+⋅⋅⋅Post Request Url: https://boltbutton.com/api/products/1/order
 
-Post Request Url: https://boltbutton.com/api/products/1/order
+⋅⋅⋅Body 
+>{
+>  "name" : "kylefoo",
+>  "amount" : "10",
+>  "email" : "kylefoo@tourplus.my",
+>  "collection_id" : "0xviqv40",
+>  "description" : "123, Jalan Malaka, Taman Mala. Malaysia"
+>}
+
