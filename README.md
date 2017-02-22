@@ -5,13 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.3.1
 
-* System dependencies
+* System dependencies 
 
 * Configuration
 
-* Database creation
+* Database creation 
+  Postgresql
 
 * Database initialization
 
@@ -20,5 +21,17 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+  Capistrano
 
-* ...
+* How to make api call
+
+Body
+{
+  "name" : "kylefoo",
+  "amount" : "10",
+  "email" : "kylefoo@tourplus.my",
+  "collection_id" : "0xviqv40",
+  "description" : "123, Jalan Malaka, Taman Mala. Malaysia"
+}
+
+Post Request Url: https://boltbutton.com/api/products/1/order
