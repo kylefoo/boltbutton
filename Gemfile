@@ -50,7 +50,6 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
-  gem 'capistrano-gitflow', git: 'git@github.com:YotpoLtd/capistrano-gitflow.git'
   gem 'capistrano-faster-assets'
   gem 'capistrano-passenger'
   gem 'capistrano-rails-console'
