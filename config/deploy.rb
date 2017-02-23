@@ -59,14 +59,6 @@ namespace :deploy do
   end
 end
 
-namespace :bundle do
-  desc "run bundle install and ensure all gem requirements are met"
-  task :install do
-    execute "cd #{current_path} && bundle install  --without=test --no-update-sources"
-  end
-end
-before "deploy:restart", "bundle:install"
-
 namespace :rails do
   desc "Tail rails error logs from server"
   task :log do
