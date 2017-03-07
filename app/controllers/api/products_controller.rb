@@ -69,12 +69,11 @@ class Api::ProductsController < Api::BaseController
     
       if bill.create
         # format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-        #format.json {render :show, status: :ok, location: api_product_path(@product)  }
+        # format.json {render :show, status: :ok, location: api_product_path(@product)  }
         render json: @product, status: :ok 
       else
         render json: @product.errors, status: :unprocessable_entity 
       end
-    end
   end
 
   private
