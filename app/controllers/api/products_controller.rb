@@ -67,14 +67,13 @@ class Api::ProductsController < Api::BaseController
     data = JSON.parse(request.body.read)
     bill = Billplz::Bill.new({ name: data['name'], amount: data['amount'], collection_id: data['collection_id'], email: data['email'], description: data['description'], callback_url: data['www.boltbutton.com'], deliver: true })
     
-    respond_to do |format|
       if bill.create
         # format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-        format.json {render :show, status: :ok, location: api_product_path(@product)  }
+        render :show, status: :ok, location: api_product_path(@product)  
       else
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        render json: @product.errors, status: :unprocessable_entity 
       end
-    end
+    
   end
 
   private
