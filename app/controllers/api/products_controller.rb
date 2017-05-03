@@ -1,7 +1,7 @@
 class Api::ProductsController < Api::BaseController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   before_action :find_product, only: [:order]
-  skip_before_filter :verify_authenticity_token, :only => [:order]
+  skip_before_action :verify_authenticity_token, :only => [:order]
   
   # GET /products
   # GET /products.json
@@ -67,13 +67,15 @@ class Api::ProductsController < Api::BaseController
     data = JSON.parse(request.body.read)
     bill = Billplz::Bill.new({ name: data['name'], amount: data['amount'], collection_id: data['collection_id'], email: data['email'], description: data['description'], callback_url: data['www.boltbutton.com'], deliver: true })
     
-      if bill.create
-        # format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-        # format.json {render :show, status: :ok, location: api_product_path(@product)  }
-        render json: @product, status: :ok 
-      else
-        render json: @product.errors, status: :unprocessable_entity 
-      end
+    if bill.create
+      increment_counter
+      # format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      # format.json {render :show, status: :ok, location: api_product_path(@product)  }
+      render json: @product, status: :ok 
+    else
+      increment_counter
+      render json: @product.errors, status: :unprocessable_entity 
+    end
   end
 
   private
@@ -84,6 +86,12 @@ class Api::ProductsController < Api::BaseController
 
     def find_product
       @product = Product.find(params[:product_id])
+    end
+
+    def increment_counter
+      base_uri = 'https://botl-counter.firebaseio.com/'
+      firebase = Firebase::Client.new(base_uri)
+      response = firebase.push("counts", { :check => '1', :created => DateTime.now })
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
