@@ -91,7 +91,11 @@ class Api::ProductsController < Api::BaseController
     def increment_counter
       base_uri = 'https://botl-counter.firebaseio.com/'
       firebase = Firebase::Client.new(base_uri)
-      response = firebase.push("counts", { :check => '1', :created => DateTime.now })
+      counts = firebase.get("counts/info")
+      firebase.update("", {
+        "counts/info" => counts.body.to_i + 1,
+        "counts/last_incremented" => DateTime.now
+      })
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
