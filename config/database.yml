@@ -28,7 +28,7 @@ staging:
   database: boltbutton_staging
   host: localhost
   username: kyle
-  password: Foo010933
+  password: password
   
 production:
   <<: *default
