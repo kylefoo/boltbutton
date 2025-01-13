@@ -31,7 +31,7 @@ Things you may want to cover:
 >{
 >  "name" : "kylefoo",
 >  "amount" : "10",
->  "email" : "kylefoo@tourplus.my",
+>  "email" : "kylefoo@mail.com",
 >  "collection_id" : "0xviqv40",
 >  "description" : "123, Jalan Malaka, Taman Mala. Malaysia"
 >}
